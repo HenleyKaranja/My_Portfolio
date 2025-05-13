@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Henley Karanja | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --nav: #161b22;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --card: #21262d;
+      --border: #30363d;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #161b22;
+    transform: translateY(-100%);
+    animation: slideDown 0.8s ease-out forwards;
+    z-index: 1000;
+  }
+
+  @keyframes slideDown {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 1rem 2rem 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 7rem;
+    }
+
+    .profile-pic-container {
+      position: relative;
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+    }
+
+    .circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, #58a6ff, #8b5cf6);
+      border-radius: 50%;
+      animation: pulse 3s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      border: 4px solid var(--border);
+    }
+
+
+    .title {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .subtitle {
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      perspective: 1000px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+card:hover .card-content {
+  transform: rotateY(15deg); /* Twisting the card on hover */
+translateY(-5px)}
+ .card-content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+    .stars {
+      color: gold;
+    }
+
+    .labels span {
+      background: var(--accent);
+      padding: 0.2rem 0.5rem;
+      margin: 0.2rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+
+    .skill-bar {
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0.2rem 0;
+    }
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+}
+  
+
+
+    /* Glowing line around the card */
+    
+
+    /* Hover effect: card glowing */
+    .card:hover {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transform: translateY(-10px);
+    }
+
+    @keyframes glowingLine {
+      0% {
+        background-position: 100% 100%;
+      }
+      25% {
+        background-position: 100% 0%;
+      }
+      50% {
+        background-position: 0% 0%;
+      }
+      75% {
+        background-position: 0% 100%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.github-btn {
+  background-color: #24292e;
+  color: white;
+}
+
+.github-btn:hover {
+  background-color: #444c56;
+}
+
+.hire-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.hire-btn:hover {
+  background-color: #218838;
+}
+
+    .skill-bar-fill {
+      background: var(--accent);
+      height: 20px;
+      text-align: right;
+      padding-right: 5px;
+      line-height: 20px;
+      font-size: 0.8rem;
+    }
+
+    footer {
+      background: var(--nav);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Henley Karanja</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="profile-pic-container">
+      <div class="circle"></div>
+      <img src="https://github.com/HenleyKaranja.png" alt="Henley Karanja" class="profile-pic" />
+    </div>
+    <h2 class="title">Henley Karanja</h2>
+    <p class="subtitle">Full Stack Developer | UI/UX Developer</p>
+    <br>
+    <div class="buttons-container">
+  <a href="https://github.com/HenleyKaranja" target="_blank" class="btn github-btn">
+    View GitHub
+  </a>
+  <a href="#contact" class="btn hire-btn">
+    Hire Me
+  </a>
+</div> 
+  </section>
+
+  <section id="about">
+    <div class="card"> 
+    <h3>About</h3>
+    <p>I am a passionate full-stack developer with a knack for clean UI/UX designs, constantly exploring innovative solutions for web applications.</p>
+    </div>  
+    </section>
+
+  <section id="projects">
+    <h3>Projects</h3>
+    <div class="card">
+      <h4>Hotel Management System</h4>
+      <p>Advanced hotel management platform using C++ and AI.</p>
+      <div class="labels"><span>C++</span><span>AI</span></div>
+      <p class="stars">★★★★☆</p>
+      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
+    </div><br>
+        <div class="card">
+      <h4>MY PORTFOLIO</h4>
+      <p>Advanced personal webpage linked directly with GitHub and GitHub repositories using HTML, JAVASCRIPT and CSS.</p>
+      <div class="labels"><span>HTML</span><span>JS</span> <span>CSS</span></div>
+      <p class="stars">★★★★★</p>
+      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
+    </div><br>
+        <div class="card">
+      <h4>AI Image Generator </h4>
+      <p>Advanced hotel management platform using C++ and AI.</p>
+      <div class="labels"><span>C++</span><span>AI</span></div>
+      <p class="stars">★★★★☆</p>
+      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h3>Skills</h3>
+    <div class="card">
+      <p>HTML</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;">90%</div></div>
+      <p>C++</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;">75%</div></div>
+    <p>PYTHON</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%;">95%</div></div>
+    
+      
+      <p>CSS</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;">85%</div></div>
+      <p>JavaScript</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%;">80%</div></div>
+      <p>React</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;">75%</div></div>
+      <p>Node.js</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%;">70%</div></div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h3>Testimonials</h3>
+    <div class="card">
+      <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
+      <p><strong>Jane Doe:</strong> Henley is one of the most talented developers I’ve worked with!</p>
+      </div> <div class="card">
+           <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
+      <p><strong>Alice Kamau:</strong> Henley is one of the most talented developers I’ve worked with! He is beyond excellent and I recommend him any time any day.</p>
+        </div> <div class="card">
+         <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
+      <p><strong>Dianah Gicheru:</strong> Henley is one of the most talented developers I’ve worked with!</p>
+  
+    </div>
+  </section>
+
+
+  <section id="feedback">
+    <h3>Feedback</h3>
+    <div class="card"><h4>Review</h4><p>Excellent work on the UI design!</p></div>
+    <div class="card"><h4>Compliment</h4><p>Your code is very clean and well-documented.</p></div>
+    <div class="card"><h4>Complaint</h4><p>Would love faster loading time on project pages.</p></div>
+  </section>
+
+
+
+  <section id="contact">
+    <div class="card">
+    <h3>Contact</h3>
+    <p>Email: henley@example.com</p>
+    <p>GitHub: <a href="https://github.com/HenleyKaranja" target="_blank">HenleyKaranja</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/henleykaranja" target="_blank">Henley Karanja</a></p>
+    </div>  
+    </section>
+
+  <footer>
+    &copy; 2025 Henley Karanja. All rights reserved.
+  </footer>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("nav").classList.add("active");
+  });
+</script>
+</body>
+</html>
+
+      
+  
