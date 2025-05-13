@@ -3,126 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Henley Karanja | Portfolio</title>
+  <title>Henley Karanja | Developer Portfolio</title>
   <style>
     :root {
       --bg: #0d1117;
-      --nav: #161b22;
+      --card-bg: #161b22;
+      --border: #30363d;
       --text: #c9d1d9;
       --accent: #58a6ff;
-      --card: #21262d;
-      --border: #30363d;
+      --transition: 0.5s ease;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #161b22;
-    transform: translateY(-100%);
-    animation: slideDown 0.8s ease-out forwards;
-    z-index: 1000;
-  }
-
-  @keyframes slideDown {
-    to {
-      transform: translateY(0);
-    }
-  }
-
-    
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    nav ul li a {
-      text-decoration: none;
+    body {
+      background: var(--bg);
       color: var(--text);
-      font-size: 0.9rem;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
     }
 
-    nav ul li a:hover {
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: top var(--transition);
+    }
+
+    header h1 {
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
       color: var(--accent);
     }
 
-    section {
-      padding: 1rem 2rem 2rem;
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .section.delay-1 { animation-delay: 0.2s; }
+    .section.delay-2 { animation-delay: 0.4s; }
+    .section.delay-3 { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero {
       text-align: center;
-      padding-top: 7rem;
+      padding-top: 120px;
     }
 
-    .profile-pic-container {
-      position: relative;
-      display: inline-block;
-      width: 150px;
-      height: 150px;
-    }
-
-    .circle {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, #58a6ff, #8b5cf6);
+    .hero img {
+      width: 140px;
       border-radius: 50%;
-      animation: pulse 3s infinite ease-in-out;
-      z-index: 0;
+      border: 2px solid var(--accent);
+      margin-bottom: 20px;
     }
 
-    .profile-pic {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      position: relative;
-      z-index: 1;
-      border: 4px solid var(--border);
-    }
-
-
-    .title {
+    .hero h2 {
       font-size: 2rem;
-      margin-top: 1rem;
-    }
-
-    .subtitle {
       color: var(--accent);
+      margin-bottom: 10px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      perspective: 1000px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      margin-top: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-card:hover .card-content {
+
+    .btn:hover {
+      background: #1f6feb;
+    }
+
+    h3 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+  card:hover .card-content {
   transform: rotateY(15deg); /* Twisting the card on hover */
 translateY(-5px)}
- .card-content {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  transition: transform 0.5s;
+
+    .card, .project {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      perspective: 1000px;
+      margin-bottom: 20px;
+      transition: transform 0.5s;
   transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
-    .stars {
+
+.github-btn {
+  background-color: #24292e;
+  color: white;
+  align:right;
+  margin:10px;
+}
+
+.github-btn:hover {
+  background-color: #444c56;
+}
+
+.hire-btn {
+  background-color: #28a745;
+  color: white;
+  align: center;
+  margin: 10px;
+}
+
+.hire-btn:hover {
+  background-color: #218838;
+}
+  .stars {
       color: gold;
     }
 
@@ -134,22 +177,51 @@ translateY(-5px)}
       font-size: 0.8rem;
       display: inline-block;
     }
-
-    .skill-bar {
-      background: #333;
-      border-radius: 5px;
-      overflow: hidden;
-      margin: 0.2rem 0;
-    }
-.buttons-container {
-  display: flex;
-  gap: 1rem;
-  margin-top: 20px;
-}
   
+    .skills-bar {
+      margin-bottom: 15px;
+    }
 
+    .skills-bar label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-    /* Glowing line around the card */
+    .skills-bar progress {
+      width: 100%;
+      height: 14px;
+      appearance: none;
+      background: #21262d;
+      border-radius: 8px;
+    }
+
+    .skills-bar progress::-webkit-progress-bar {
+      background-color: #21262d;
+      border-radius: 8px;
+    }
+
+    .skills-bar progress::-webkit-progress-value {
+      background-color: var(--accent);
+      border-radius: 8px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+      /* Glowing line around the card */
     
 
     /* Hover effect: card glowing */
@@ -176,146 +248,64 @@ translateY(-5px)}
       }
     }
 
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.github-btn {
-  background-color: #24292e;
-  color: white;
-}
-
-.github-btn:hover {
-  background-color: #444c56;
-}
-
-.hire-btn {
-  background-color: #28a745;
-  color: white;
-}
-
-.hire-btn:hover {
-  background-color: #218838;
-}
-
-    .skill-bar-fill {
-      background: var(--accent);
-      height: 20px;
-      text-align: right;
-      padding-right: 5px;
-      line-height: 20px;
-      font-size: 0.8rem;
-    }
-
-    footer {
-      background: var(--nav);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 2rem;
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav>
+  <header id="navbar">
     <h1>Henley Karanja</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#feedback">Feedback</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <section class="hero" id="home">
-    <div class="profile-pic-container">
-      <div class="circle"></div>
-      <img src="https://github.com/HenleyKaranja.png" alt="Henley Karanja" class="profile-pic" />
-    </div>
-    <h2 class="title">Henley Karanja</h2>
-    <p class="subtitle">Full Stack Developer | UI/UX Developer</p>
-    <br>
-    <div class="buttons-container">
-  <a href="https://github.com/HenleyKaranja" target="_blank" class="btn github-btn">
-    View GitHub
-  </a>
-  <a href="#contact" class="btn hire-btn">
-    Hire Me
-  </a>
-</div> 
+  <section class="section hero delay-1">
+    <img src="https://github.com/HenleyKaranja.png" alt="Profile Picture">
+    <h2>Full-Stack Developer</h2>
+    <p>Crafting modern, secure, and intelligent applications</p>
+    <a href="https://github.com/HenleyKaranja" target="_blank"><button class="btn">View GitHub</button></a>
   </section>
 
-  <section id="about">
-    <div class="card"> 
-    <h3>About</h3>
-    <p>I am a passionate full-stack developer with a knack for clean UI/UX designs, constantly exploring innovative solutions for web applications.</p>
-    </div>  
-    </section>
-
-  <section id="projects">
-    <h3>Projects</h3>
+  <section class="section delay-2" id="about">
+    <h3>About Me</h3>
     <div class="card">
-      <h4>Hotel Management System</h4>
-      <p>Advanced hotel management platform using C++ and AI.</p>
-      <div class="labels"><span>C++</span><span>AI</span></div>
-      <p class="stars">★★★★☆</p>
-      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
-    </div><br>
-        <div class="card">
-      <h4>MY PORTFOLIO</h4>
-      <p>Advanced personal webpage linked directly with GitHub and GitHub repositories using HTML, JAVASCRIPT and CSS.</p>
-      <div class="labels"><span>HTML</span><span>JS</span> <span>CSS</span></div>
-      <p class="stars">★★★★★</p>
-      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
-    </div><br>
-        <div class="card">
-      <h4>AI Image Generator </h4>
-      <p>Advanced hotel management platform using C++ and AI.</p>
-      <div class="labels"><span>C++</span><span>AI</span></div>
-      <p class="stars">★★★★☆</p>
-      <a href="https://github.com/HenleyKaranja/hotel-management" target="_blank">View Repository</a>
+      <p>I’m a developer who specializes in building efficient, scalable systems using modern web technologies. From backend APIs to responsive frontends and AI integrations, I engineer digital experiences that perform.</p>
     </div>
   </section>
 
-  <section id="skills">
+  <section class="section delay-2" id="skills">
     <h3>Skills</h3>
     <div class="card">
-      <p>HTML</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%;">90%</div></div>
-      <p>C++</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;">75%</div></div>
-    <p>PYTHON</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%;">95%</div></div>
-    
-      
-      <p>CSS</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%;">85%</div></div>
-      <p>JavaScript</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%;">80%</div></div>
-      <p>React</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%;">75%</div></div>
-      <p>Node.js</p>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%;">70%</div></div>
+      <div class="skills-bar"><label>JavaScript</label><progress value="90" max="100"></progress></div>
+      <div class="skills-bar"><label>React</label><progress value="85" max="100"></progress></div>
+      <div class="skills-bar"><label>Node.js</label><progress value="80" max="100"></progress></div>
+      <div class="skills-bar"><label>MongoDB</label><progress value="75" max="100"></progress></div>
+      <div class="skills-bar"><label>Python</label><progress value="85" max="100"></progress></div>
+      <div class="skills-bar"><label>Django</label><progress value="80" max="100"></progress></div>
+      <div class="skills-bar"><label>C++</label><progress value="70" max="100"></progress></div>
     </div>
   </section>
 
-  <section id="testimonials">
+  <section class="section delay-3" id="projects">
+    <h3>Projects</h3>
+    <div class="projects-grid" id="repos"></div>
+  </section>
+ <section id="testimonials">
     <h3>Testimonials</h3>
     <div class="card">
       <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
       <p><strong>Jane Doe:</strong> Henley is one of the most talented developers I’ve worked with!</p>
       </div> <div class="card">
            <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
-      <p><strong>Alice Kamau:</strong> Henley is one of the most talented developers I’ve worked with! He is beyond excellent and I recommend him any time any day.</p>
+      <p><strong>Alice Spice:</strong> Henley is one of the most talented developers I’ve worked with! He is beyond excellent and I recommend him any time any day.</p>
         </div> <div class="card">
          <img src="https://via.placeholder.com/40" style="border-radius: 50%;" />
       <p><strong>Dianah Gicheru:</strong> Henley is one of the most talented developers I’ve worked with!</p>
@@ -330,29 +320,61 @@ translateY(-5px)}
     <div class="card"><h4>Compliment</h4><p>Your code is very clean and well-documented.</p></div>
     <div class="card"><h4>Complaint</h4><p>Would love faster loading time on project pages.</p></div>
   </section>
-
-
-
-  <section id="contact">
+  
+  <section class="section delay-3" id="contact">
+    <h3>Contact Me</h3>
     <div class="card">
-    <h3>Contact</h3>
-    <p>Email: henley@example.com</p>
-    <p>GitHub: <a href="https://github.com/HenleyKaranja" target="_blank">HenleyKaranja</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/henleykaranja" target="_blank">Henley Karanja</a></p>
-    </div>  
-    </section>
-
+      <form onsubmit="event.preventDefault(); alert('Message sent!')">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+<section><div class="card">
+ <div class="buttons-container">
+  <a href="https://github.com/HenleyKaranja" target="_blank" class="btn github-btn">
+    View GitHub
+  </a>
+  <a href="#contact" class="btn hire-btn">
+    Hire Me
+  </a>
+</div> </div></section>
+  
   <footer>
-    &copy; 2025 Henley Karanja. All rights reserved.
+    © 2025 Henley Karanja — Built with passion & GitHub magic.
   </footer>
 
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("nav").classList.add("active");
-  });
-</script>
-</body>
-</html>
+  <script>
+    // Slide nav effect
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+      document.getElementById("navbar").style.top = prevScrollpos > currentScrollPos ? "0" : "-80px";
+      prevScrollpos = currentScrollPos;
+    };
 
-      
+    // Fetch GitHub repos
+    fetch("https://api.github.com/users/HenleyKaranja/repos?sort=updated")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("repos");
+        data.slice(0, 6).forEach(repo => {
+          const div = document.createElement("div");
+          div.className = "project";
+          div.innerHTML = `
+            <strong><a href="${repo.html_url}" target="_blank">${repo.name}</a></strong>
+            <p>${repo.description || "No description provided."}</p>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("repos").innerHTML = "<p>Unable to load repositories.</p>";
+      });
+  </script>
+
+</body>
+  </html>
   
